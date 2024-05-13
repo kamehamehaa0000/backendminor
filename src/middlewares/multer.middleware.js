@@ -7,7 +7,7 @@ const __dirname = dirname(__filename)
 
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
-    const destinationPath = join(__dirname, 'public', 'temp') // Constructing the destination path using path module
+    const destinationPath = join(__dirname, '..', 'public', 'temp') // Adjusting the path to go up one directory to the project root
     callback(null, destinationPath)
   },
   filename: function (req, file, callback) {
