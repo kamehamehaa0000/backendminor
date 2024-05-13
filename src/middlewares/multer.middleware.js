@@ -1,9 +1,13 @@
 import multer from 'multer'
-import path from 'path'
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
-    const destinationPath = path.join(__dirname, 'public', 'temp') // Constructing the destination path using path module
+    const destinationPath = join(__dirname, 'public', 'temp') // Constructing the destination path using path module
     callback(null, destinationPath)
   },
   filename: function (req, file, callback) {
