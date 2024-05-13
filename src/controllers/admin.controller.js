@@ -8,7 +8,7 @@ const registerAdmin = asyncHandler(async (req, res) => {
   if (!password || !email) {
     throw new errorHandler(400, 'All fields are required')
   }
-  const existing = await Admin.findOne({ email })
+  const existing = await Admin.findOne({ email: email })
   if (existing) {
     throw new errorHandler(400, 'Admin already exists')
   }
